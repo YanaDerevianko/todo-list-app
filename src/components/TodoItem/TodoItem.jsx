@@ -12,6 +12,7 @@ const Todo = ({ todo, id,  completed, onToggleCompleted, onDelete, updateTodo })
   };
 
 
+
   return (
     <>
     {edit 
@@ -39,7 +40,7 @@ const Todo = ({ todo, id,  completed, onToggleCompleted, onDelete, updateTodo })
   );
 };
 const mapDispatchToProps = (dispatch) => ({
-  updateTodo: (value, id, completed) =>  dispatch(todosActions.updateTodo(value, id, completed)),
+  updateTodo: (value, id) =>  dispatch(todosActions.updateTodo(value, id)),
 });
 export default connect(null, mapDispatchToProps)(Todo);
 

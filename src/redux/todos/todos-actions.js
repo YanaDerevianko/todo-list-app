@@ -39,7 +39,8 @@ const updateTodo = createAction('todos/update', (value, id) => {
   return {
     payload: {
       id: id,
-      todo:value,
+      todo:  value,
+  
     },
   };
 });
