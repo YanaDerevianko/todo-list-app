@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import todosActions from "../../redux/todos/todos-actions";
+import {Container, Button, CheckBox, ItemWrapper,TextTodo, ButtonDel, ButtonSave, Area } from './TodoItem.styled'
 
 const Todo = ({ todo, id,  completed, onToggleCompleted, onDelete, updateTodo }) => {
   const [edit, setEdit] = useState(false);
@@ -17,22 +18,22 @@ const Todo = ({ todo, id,  completed, onToggleCompleted, onDelete, updateTodo })
     <>
     {edit 
     ? 
-    <div>
-      <textarea value={value} onChange={(e)=> setValue(e.target.value)}/>
-      <button onClick={()=>updateTodo(value, id, completed)}>Save</button>
-    </div>
+    <Container>
+      <Area  value={value} onChange={(e)=> setValue(e.target.value)}/>
+      <ButtonSave onClick={()=>updateTodo(value, id, completed)}>Save</ButtonSave>
+    </Container>
     :
 
-    <div>
-      <input type="checkbox" checked={completed} onChange={onToggleCompleted} />
-      <p>{todo}</p>
-      <button type="button" onClick={()=>editTodo(todo)}>
+    <ItemWrapper>
+      <CheckBox type="checkbox" checked={completed} onChange={onToggleCompleted} />
+      <TextTodo>{todo}</TextTodo>
+      <Button type="button" onClick={()=>editTodo(todo)}>
         Edit
-      </button>
-      <button type="button" onClick={onDelete}>
+      </Button>
+      <ButtonDel type="button" onClick={onDelete}>
         Delete
-      </button>
-    </div>
+      </ButtonDel>
+    </ItemWrapper>
 
   }
       

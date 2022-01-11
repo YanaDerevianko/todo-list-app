@@ -1,18 +1,19 @@
 import { connect } from "react-redux";
+import {Number, Kind} from './TodoStatistic.styled'
 
 const Statistic = ({ total, completed, active }) => (
   <div>
     <p>
-      <span>{total}</span>
-      <span>Total</span>
+      <Number>{total}</Number>
+      <Kind>Total</Kind>
     </p>
     <p>
-      <span>{completed}</span>
-      <span>Completed</span>
+      <Number>{completed}</Number>
+      <Kind>Completed</Kind>
     </p>
     <p>
-      <span>{active}</span>
-      <span>Active</span>
+      <Number>{active}</Number>
+      <Kind>Active</Kind>
     </p>
   </div>
 );

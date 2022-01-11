@@ -2,15 +2,16 @@ import { connect } from "react-redux";
 import TodosActions from "../../redux/todos/todos-actions";
 import React, { useState } from "react";
 import Todo from "../TodoItem/TodoItem";
+import {Button} from './DisplayTodos.styled'
 
 const DisplayTodos = ({ todos, onToggleCompleted, onDelete, updateTodo }) => {
   const [sort, setSort] = useState("active");
 
   return (
     <div>
-      <button onClick={() => setSort("active")}>Active</button>
-      <button onClick={() => setSort("completed")}>Completed</button>
-      <button onClick={() => setSort("all")}>All</button>
+      <Button onClick={() => setSort("active")}>Active</Button>
+      <Button onClick={() => setSort("completed")}>Completed</Button>
+      <Button onClick={() => setSort("all")}>All</Button>
       <ul>
         {todos.length > 0 && sort === "active"
           ? todos.map(({ id, todo, completed }) => {

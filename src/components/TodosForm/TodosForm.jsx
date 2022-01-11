@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import todosActions from "../../redux/todos/todos-actions";
+import {Title, InputField, Button} from './TodosForm.styled'
 
 const TodosForm = ({addTodo}) => {
   const [todo, setTodo] = useState("");
@@ -20,15 +21,15 @@ const TodosForm = ({addTodo}) => {
 
   return (
     <div>
-      <h1>My ToDo App</h1>
+      <Title>My ToDo App</Title>
       <div>
-        <input
+        <InputField
           type="text"
           placeholder="add your todos"
           onChange={(e) => handleChange(e)}
           value={todo}
         />
-        <button onClick={() => add()}>Add todos</button>
+        <Button onClick={() => add()}>Add todo</Button>
       </div>
     </div>
   )

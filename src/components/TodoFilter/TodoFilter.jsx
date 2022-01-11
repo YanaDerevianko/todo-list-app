@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import todosActions from '../../redux/todos/todos-actions';
+import {Filter, InputFilter} from './TodoFilter.styled'
 
 const TodoFilter = ({ value, onChange }) => (
   <div>
-    <p>Find your todo</p>
-    <input
+    <Filter>Find your todo</Filter>
+    <InputFilter
       type="text"
       value={value}
       onChange={onChange}

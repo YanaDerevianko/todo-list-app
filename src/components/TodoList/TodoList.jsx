@@ -1,13 +1,14 @@
 import Todo from "../TodoItem/TodoItem";
 import { connect } from "react-redux";
 import TodosActions from "../../redux/todos/todos-actions";
+import {List, Item } from './TodoList.styled'
 
 const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
 
 
-  <ul>
+  <List>
     {todos.map(({ id, todo, completed }) => (
-      <li key={id}>
+      <Item key={id}>
         <Todo
           id={id}
           todo={todo}
@@ -15,9 +16,9 @@ const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
           onToggleCompleted={() => onToggleCompleted(id)}
           onDelete={() => onDeleteTodo(id)}
         />
-      </li>
+      </Item>
     ))}
-  </ul>
+  </List>
 );
 
 const getVisibleTodos = (allTodos, filter) => {
