@@ -9,9 +9,9 @@ export const App = () => {
   return (
     <Container>
       <TodosForm />
-      <TodoFilter />
-      <Statistic />
-      <DisplayTodos />
+      {/* <TodoFilter /> */}
+      {/* <Statistic /> */}
+      {/* <DisplayTodos /> */}
       <TodoList />  
     </Container>
   );

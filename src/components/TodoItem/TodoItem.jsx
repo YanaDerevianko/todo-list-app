@@ -7,11 +7,18 @@ const Todo = ({ todo, id,  completed, onToggleCompleted, onDelete, updateTodo })
   const [edit, setEdit] = useState(false);
   const [value, setValue] = useState("");
 
+
   const editTodo = (todo) => {
     setEdit(true);
     setValue(todo);
+   
   };
 
+const update = (id, value) => {
+      updateTodo({ id, todo: value});
+      setEdit(false);
+
+  };
 
 
   return (
@@ -19,8 +26,11 @@ const Todo = ({ todo, id,  completed, onToggleCompleted, onDelete, updateTodo })
     {edit 
     ? 
     <Container>
-      <Area  value={value} onChange={(e)=> setValue(e.target.value)}/>
-      <ButtonSave onClick={()=>updateTodo(value, id, completed)}>Save</ButtonSave>
+      <Area 
+      value={value} 
+      onChange={(e)=> setValue(e.target.value)}
+      />
+      <ButtonSave onClick={()=>update(id, value)}>Save</ButtonSave>
     </Container>
     :
 
@@ -41,7 +51,7 @@ const Todo = ({ todo, id,  completed, onToggleCompleted, onDelete, updateTodo })
   );
 };
 const mapDispatchToProps = (dispatch) => ({
-  updateTodo: (value, id) =>  dispatch(todosActions.updateTodo(value, id)),
+  updateTodo: (id, value) =>  dispatch(todosActions.updateTodo(id, value)),
 });
 export default connect(null, mapDispatchToProps)(Todo);
 

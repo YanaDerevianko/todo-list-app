@@ -34,15 +34,21 @@ const deleteTodo = createAction("todos/delete");
 const changeFilter = createAction("todos/changeFilter");
 
 const toggleCompleted = createAction("todos/toggleCompleted");
+const updateTodo = createAction("todos/update");
 
-const updateTodo = createAction('todos/update', (value, id) => {
-  return {
-    payload: {
-      id: id,
-      todo:  value,
-  
-    },
-  };
-});
+// const updateTodo = createAction("todos/update", (value) => {
+//   console.log(value);
+//   return {
+//     payload: {
+//       value,
+//     },
+//   };
+// });
 
-export default { addTodo, deleteTodo, changeFilter, toggleCompleted, updateTodo };
+export default {
+  addTodo,
+  deleteTodo,
+  changeFilter,
+  toggleCompleted,
+  updateTodo,
+};

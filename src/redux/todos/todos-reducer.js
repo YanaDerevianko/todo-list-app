@@ -14,8 +14,9 @@ const items = createReducer([], {
     ),
   [actions.updateTodo]: (state, { payload }) =>
   // console.log(payload)
+  
    state.map((todo) =>
-    todo.id === payload.id ? { ...todo, todo: payload.value } : todo
+      todo.id === payload.id ? { ...todo, todo: payload.todo } : todo
 
   ),
  

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import TodosActions from "../../redux/todos/todos-actions";
 import {List, Item } from './TodoList.styled'
 
-const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
+const TodoList = ({ todos, onDeleteTodo, onToggleCompleted, onUpdateTodo }) => (
 
 
   <List>
@@ -15,6 +15,7 @@ const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
           completed={completed}
           onToggleCompleted={() => onToggleCompleted(id)}
           onDelete={() => onDeleteTodo(id)}
+          updateTodo={()=> onUpdateTodo(id)}
         />
       </Item>
     ))}
