@@ -2,8 +2,6 @@ import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import actions from "../todos/todos-actions";
 
-
-
 const items = createReducer([], {
   [actions.addTodo]: (state, { payload }) => [...state, payload],
   [actions.deleteTodo]: (state, { payload }) =>
@@ -13,14 +11,11 @@ const items = createReducer([], {
       todo.id === payload ? { ...todo, completed: !todo.completed } : todo
     ),
   [actions.updateTodo]: (state, { payload }) =>
-  // console.log(payload)
-  
-   state.map((todo) =>
+    // console.log(payload)
+
+    state.map((todo) =>
       todo.id === payload.id ? { ...todo, todo: payload.todo } : todo
-
-  ),
- 
-
+    ),
 });
 
 // const items = (state = [], { type, payload }) => {
@@ -36,8 +31,8 @@ const items = createReducer([], {
 //   }
 // };
 
-const filter = createReducer("", {
-  [actions.changeFilter]: (_, { payload }) => payload,
+const filterStatus = createReducer("all", {
+  [actions.updateFilterStatus]: (_, { payload }) => payload,
 });
 // const filter = (state = "", { type, payload }) => {
 //   switch (type) {
@@ -51,5 +46,5 @@ const filter = createReducer("", {
 
 export default combineReducers({
   items,
-  filter,
+  filterStatus,
 });

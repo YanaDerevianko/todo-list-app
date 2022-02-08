@@ -9,9 +9,9 @@ export const Container = styled.div`
   border-radius: 4px;
 `;
 export const Button = styled.button`
-  background-color: #303f9f;
+  background-color: #585858;
   position: absolute;
-  right:100px;
+  right: 100px;
   border-radius: 5px;
   padding: 7px 14px;
   color: #fff;
@@ -22,7 +22,7 @@ export const Button = styled.button`
   outline: none;
 `;
 export const ButtonDel = styled.button`
-  background-color: #303f9f;
+  background-color: #585858;
   position: absolute;
   right: 15px;
   border-radius: 5px;
@@ -35,7 +35,7 @@ export const ButtonDel = styled.button`
   outline: none;
 `;
 export const ButtonSave = styled.button`
-  background-color: #303f9f;
+  background-color: #585858;
   position: absolute;
   right: -92px;
   border-radius: 5px;
@@ -62,7 +62,7 @@ export const ItemWrapper = styled.div`
   align-items: center;
   padding: 15px;
   border-radius: 4px;
-  background-color: AliceBlue;
+  background-color: #cccdde;
   width: 530px;
 `;
 export const TextTodo = styled.p`
@@ -72,6 +72,5 @@ export const TextTodo = styled.p`
   margin-left: 24px;
 `;
 export const Area = styled.textarea`
-width: 420px;
+  width: 420px;
 `;
-

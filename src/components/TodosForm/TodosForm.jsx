@@ -1,28 +1,36 @@
 import { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import todosActions from "../../redux/todos/todos-actions";
-import {Title, InputField, Button} from './TodosForm.styled'
+import { Title, InputField, Button, Container } from "./TodosForm.styled";
+import SelectButton from "../SelectButton/SelectButton";
+import { getFilterStatus } from "../../utils/todos-selectors";
 
-const TodosForm = ({addTodo}) => {
+const TodosForm = () => {
+  const dispatch = useDispatch();
   const [todo, setTodo] = useState("");
+  const filterStatus = useSelector(getFilterStatus);
+
+  const updateFilter = (e) => {
+    dispatch(todosActions.updateFilterStatus(e.target.value));
+  };
 
   const handleChange = (e) => {
-       setTodo(e.target.value);
+    setTodo(e.target.value);
   };
 
   const add = () => {
     if (todo === "") {
       alert("Add text your todo");
-    } else {
-        addTodo(todo)
-        setTodo('')
+      return;
     }
+    dispatch(todosActions.addTodo(todo));
+    setTodo("");
   };
 
   return (
     <div>
       <Title>My ToDo App</Title>
-      <div>
+      <Container>
         <InputField
           type="text"
           placeholder="add your todos"
@@ -30,15 +38,14 @@ const TodosForm = ({addTodo}) => {
           value={todo}
         />
         <Button onClick={() => add()}>Add todo</Button>
-      </div>
+        <SelectButton id="status" value={filterStatus} onChange={updateFilter}>
+          <option value="all">All</option>
+          <option value="incomplete">Incomplete</option>
+          <option value="completed">Completed</option>
+        </SelectButton>
+      </Container>
     </div>
-  )
-}
+  );
+};
 
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-      addTodo: (todo) => dispatch(todosActions.addTodo(todo)),
-    };
-  };
-export default connect(null, mapDispatchToProps)(TodosForm);
+export default TodosForm;
