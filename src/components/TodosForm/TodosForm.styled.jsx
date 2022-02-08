@@ -12,12 +12,12 @@ export const InputField = styled.input`
   border: 2px solid #000;
 `;
 export const Button = styled.button`
-  background-color: #cccdde;
+  background-color: #0075ff;
   font-family: "Roboto";
   margin-left: 15px;
   border-radius: 10px;
   padding: 15px 37px;
-  color: #585858;
+  color: #fff;
   text-transform: uppercase;
   font-weight: 700;
   border: none;
